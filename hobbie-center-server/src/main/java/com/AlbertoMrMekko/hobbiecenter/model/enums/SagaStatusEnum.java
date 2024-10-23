@@ -1,5 +1,6 @@
 package com.AlbertoMrMekko.hobbiecenter.model.enums;
 
-public enum SagaEnum {
+public enum SagaStatusEnum
+{
     FINISHED, ON_GOING, AVAILABLE, NOT_AVAILABLE, UNRELEASED
 }

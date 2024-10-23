@@ -1,6 +1,6 @@
 package com.AlbertoMrMekko.hobbiecenter.model;
 
-import com.AlbertoMrMekko.hobbiecenter.model.enums.SagaEnum;
+import com.AlbertoMrMekko.hobbiecenter.model.enums.SagaStatusEnum;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -24,7 +24,7 @@ public class Saga {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private SagaEnum status;
+    private SagaStatusEnum status;
 
     @Column(name = "rating", precision = 2, scale = 1)
     private BigDecimal rating;
