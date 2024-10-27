@@ -2,21 +2,27 @@ package com.AlbertoMrMekko.hobbiecenter.model;
 
 import com.AlbertoMrMekko.hobbiecenter.model.enums.SagaStatusEnum;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@Getter
 @Entity
 @Table(name = "sagas")
-public class Saga {
+public class Saga
+{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", unique = true, nullable = false)
+    @NotEmpty
     private String title;
 
-    @Column(name = "author")
+    @Column(name = "author", nullable = false)
+    @NotEmpty
     private String author;
 
     @Column(name = "cover_url")
@@ -33,4 +39,9 @@ public class Saga {
     private List<Book> books;
 
     // TODO constructor
+
+    public boolean validateSagaCreation()
+    {
+        return (id != null || rating != null || status != null || books != null);
+    }
 }

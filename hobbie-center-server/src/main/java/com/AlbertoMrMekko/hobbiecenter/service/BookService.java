@@ -3,7 +3,6 @@ package com.AlbertoMrMekko.hobbiecenter.service;
 import com.AlbertoMrMekko.hobbiecenter.model.Book;
 import com.AlbertoMrMekko.hobbiecenter.model.enums.BookStatusEnum;
 import com.AlbertoMrMekko.hobbiecenter.repository.BookRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,13 +37,6 @@ public class BookService
 
     public void deleteBook(Long id)
     {
-        if (this.repository.existsById(id))
-        {
-            this.repository.deleteById(id); // TODO comprobar delete/deleteById
-        }
-        else
-        {
-            throw new EntityNotFoundException("Book with id " + id + " not found"); // TODO no es obtenido por el ControllerExceptionHandler, cambiar
-        }
+        this.repository.deleteById(id);
     }
 }

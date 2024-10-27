@@ -43,4 +43,9 @@ public class Book
     private Saga saga;
 
     // TODO constructor
+
+    public boolean validateBookCreation()
+    {
+        return (id != null || rating != null || (status != BookStatusEnum.AVAILABLE && status != BookStatusEnum.NOT_AVAILABLE));
+    }
 }
